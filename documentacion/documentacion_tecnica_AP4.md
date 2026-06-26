@@ -4,13 +4,13 @@
 
 El desarrollo de esta práctica se organizó por funciones para que cada integrante aportara una parte concreta del proyecto. El resultado final refleja trabajo coordinado en la aplicación, la documentación y la verificación del funcionamiento.
 
-| Integrante | Matrícula | Rol asignado | Responsabilidad concreta |
-|---|---:|---|---|
-| Franklin Alberto Beltré Fernández | 100066613 | Líder técnico | Coordina reuniones, revisa plazos, mantiene el repositorio de GitHub y apoya dudas de Ionic. |
-| Smailyn Ceballo Viva | 100064094 | Diseñador de interfaz | Crea bocetos, lleva el diseño a digital, selecciona colores y asegura que la app sea fácil de usar. |
-| Angeleen Antonio Bello Hernández | 100065707 | Programador funcional | Escribe el código de geolocalización, Firebase, mapas y el sistema de reportes colaborativos. |
-| Francisco Ferreira | 100052613 | Documentador / tester | Toma notas de las reuniones, prueba la app en varios teléfonos y revisa formato APA y referencias. |
-| Emmanuel Espinal | 100063182 | Investigador de datos / community manager | Analiza redes sociales y noticias del corredor, diseña el sistema de reputación por estrellas y valida estadísticas de ocupación. |
+| Integrante                        | Matrícula | Rol asignado                              | Responsabilidad concreta                                                                                                          |
+| --------------------------------- | ---------:| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| Franklin Alberto Beltré Fernández | 100066613 | Líder técnico                             | Coordina reuniones, revisa plazos, mantiene el repositorio de GitHub y apoya dudas de Ionic.                                      |
+| Smailyn Ceballo Viva              | 100064094 | Diseñador de interfaz                     | Crea bocetos, lleva el diseño a digital, selecciona colores y asegura que la app sea fácil de usar.                               |
+| Angeleen Antonio Bello Hernández  | 100065707 | Programador funcional                     | Escribe el código de geolocalización, Firebase, mapas y el sistema de reportes colaborativos.                                     |
+| Francisco Ferreira                | 100052613 | Documentador / tester                     | Toma notas de las reuniones, prueba la app en varios teléfonos y revisa formato APA y referencias.                                |
+| Emmanuel Espinal                  | 100063182 | Investigador de datos / community manager | Analiza redes sociales y noticias del corredor, diseña el sistema de reputación por estrellas y valida estadísticas de ocupación. |
 
 ## 2. Descripción general
 
@@ -148,14 +148,59 @@ Además, el proyecto se sincronizó con Capacitor para que el plugin quede dispo
 
 ## 12. Capturas de pantalla
 
-Agregar aquí las evidencias reales de la aplicación:
+  Las evidencias gráficas del proyecto se encuentran en Google Drive:
 
-- aplicación con conexión activa;
-- aplicación sin conexión;
-- reporte guardado localmente;
-- sincronización al recuperar la conexión.
+- Grupo Z
 
-## 13. Instalación y ejecución
+- [Carpeta de capturas](https://drive.google.com/drive/folders/18d64VEmZtwBsAhtVcURjgRpleJEs3eOD)
+  
+  Capturas incluidas en esta entrega:
+
+- `01_navegador_conectado.png`
+  
+  ![01_navegador_conectado.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/01_navegador_conectado.png)
+  
+  
+
+- 02_navegador_offline.png`
+
+![02_navegador_offline.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/02_navegador_offline.png)
+
+
+
+- `03_emulador_conectado.png`
+
+
+
+![03_emulador_conectado.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/03_emulador_conectado.png)
+
+
+
+- `04_emulador_conectado_reporte_enviado.png`
+
+
+
+![04_emulador_conectado_reporte_enviado.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/04_emulador_conectado_reporte_enviado.png)
+
+
+
+- `05_emulador_offline.png`
+
+
+
+![05_emulador_offline.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/05_emulador_offline.png)
+
+
+
+- `06_emulador_offline_reporte_pendiente.png`
+
+
+
+![06_emulador_offline_reporte_pendiente.png](/home/heroe/Desarrollo/desarrollo%20movil/AP4_GrupoZ/ocupabus-app/documentacion/06_emulador_offline_reporte_pendiente.png)
+
+# 
+
+# 13. Instalación y ejecución#
 
 ### Ejecutar en VS Code
 
@@ -179,4 +224,14 @@ ionic cap run android -l --external
 
 ## 14. Observación final
 
-La solución deja lista la base del proyecto en Ionic para que el módulo de conectividad pueda evaluarse en navegador y en Android. La estructura del código separa claramente la detección de red, el modo offline y la interfaz principal.
+La solución deja lista la base del proyecto en Ionic para que el módulo de conectividad pueda evaluarse en navegador y en Android. La estructura del código separa claramente la detección de red, el modo offline y la interfaz principal.  mv 'Screenshot from 2026-06-26 10-05-17.png' '01_navegador_conectado.png'
+  mv 'Screenshot from 2026-06-26 10-12-15.png' '02_navegador_offline.png'
+  mv 'Screenshot from 2026-06-26 11-53-52.png' '03_emulador_conectado.png'
+  mv 'Screenshot from 2026-06-26 11-54-06.png' '04_emulador_conectado_reporte_enviado.png'
+  mv 'Screenshot from 2026-06-26 12-02-39.png' '05_emulador_offline.png'
+  mv 'Screenshot from 2026-06-26 12-02-51.png' '06_emulador_offline_reporte_pendiente.png'  mv 'Screenshot from 2026-06-26 10-05-17.png' '01_navegador_conectado.png'
+  mv 'Screenshot from 2026-06-26 10-12-15.png' '02_navegador_offline.png'
+  mv 'Screenshot from 2026-06-26 11-53-52.png' '03_emulador_conectado.png'
+  mv 'Screenshot from 2026-06-26 11-54-06.png' '04_emulador_conectado_reporte_enviado.png'
+  mv 'Screenshot from 2026-06-26 12-02-39.png' '05_emulador_offline.png'
+  mv 'Screenshot from 2026-06-26 12-02-51.png' '06_emulador_offline_reporte_pendiente.png'

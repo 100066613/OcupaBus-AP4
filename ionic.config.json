@@ -1,0 +1,7 @@
+{
+  "name": "ocupabus-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

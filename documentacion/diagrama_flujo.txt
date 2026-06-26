@@ -1,0 +1,21 @@
+Inicio
+↓
+La app consulta el estado de red
+↓
+¿Hay conexión?
+├── Sí → Mostrar banner online y permitir envío inmediato
+└── No → Mostrar banner offline y guardar reporte en localStorage
+↓
+El usuario crea un reporte de ocupación
+↓
+¿La red sigue activa?
+├── Sí → Marcar como enviado y actualizar la lista de reportes enviados
+└── No → Guardar como pendiente y mostrar mensaje al usuario
+↓
+La app escucha cambios de red
+↓
+¿Se recuperó la conexión?
+├── Sí → Sincronizar reportes pendientes y limpiar localStorage
+└── No → Mantener el modo offline
+↓
+Fin

@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>OcupaBus AP4</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="page-shell">
+    <section class="hero">
+      <ion-badge color="light">Ionic + Angular + Capacitor</ion-badge>
+      <h1>Deteccion de red y modo offline funcional</h1>
+      <p>
+        Esta version permite ver el estado de conexion en tiempo real, registrar ocupacion del bus y conservar
+        reportes cuando el dispositivo se queda sin internet.
+      </p>
+    </section>
+
+    <app-network-banner></app-network-banner>
+
+    <ion-card class="action-card">
+      <ion-card-header>
+        <ion-card-title>Registrar reporte</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="card-copy">Toca una opcion para crear un reporte de ocupacion con geolocalizacion fija de ejemplo.</p>
+
+        <div class="button-grid">
+          <ion-button expand="block" color="success" (click)="registrarReporte('vacío')">
+            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
+            Vacío
+          </ion-button>
+          <ion-button expand="block" color="warning" (click)="registrarReporte('medio')">
+            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
+            Medio
+          </ion-button>
+          <ion-button expand="block" color="danger" (click)="registrarReporte('lleno')">
+            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
+            Lleno
+          </ion-button>
+        </div>
+
+        <ion-text class="status-copy">
+          {{ message$ | async }}
+        </ion-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="list-card">
+      <ion-card-header>
+        <ion-card-title>Reportes pendientes</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none" class="report-list">
+          <ion-item *ngFor="let report of (pendingReports$ | async) ?? []">
+            <ion-label>
+              <h3>{{ report.ocupacion }}</h3>
+              <p>{{ report.fecha }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="((pendingReports$ | async) ?? []).length === 0">
+            <ion-label>
+              <h3>No hay reportes pendientes</h3>
+              <p>Cuando la app esté offline, los reportes quedarán aquí hasta sincronizarse.</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="list-card">
+      <ion-card-header>
+        <ion-card-title>Reportes enviados</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none" class="report-list">
+          <ion-item *ngFor="let report of (sentReports$ | async) ?? []">
+            <ion-label>
+              <h3>{{ report.ocupacion }}</h3>
+              <p>{{ report.fecha }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="((sentReports$ | async) ?? []).length === 0">
+            <ion-label>
+              <h3>Aun no hay reportes enviados</h3>
+              <p>Los reportes online se agregaran automaticamente aqui.</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

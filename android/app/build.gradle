@@ -3,13 +3,13 @@ apply plugin: 'com.android.application'
 android {
     namespace = "com.ocupabus.ap4"
     compileSdk = rootProject.ext.compileSdkVersion
+    base.archivesName = "OcupaBus-AP4"
     defaultConfig {
         applicationId "com.ocupabus.ap4"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        base.archivesName = "OcupaBus-AP4"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.

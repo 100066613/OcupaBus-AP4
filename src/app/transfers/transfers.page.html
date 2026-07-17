@@ -11,11 +11,9 @@
 
   <div class="page-shell">
     <section class="hero">
-      <p class="eyebrow">Interfaces + almacenamiento</p>
-      <h1>CRUD local con gestos</h1>
+      <h1>Mis tareas</h1>
       <p>
-        Esta pantalla demuestra persistencia local, reordenamiento, eliminacion deslizando y refresco manual para
-        cubrir los temas de interfaz y almacenamiento.
+        Organiza tus pendientes, arrastra para reordenar y desliza para eliminar.
       </p>
     </section>
 
@@ -24,7 +22,7 @@
         <ion-card-title>Nueva tarea</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-input [(ngModel)]="title" label="Titulo" labelPlacement="stacked" placeholder="Preparar defensa"></ion-input>
+        <ion-input [(ngModel)]="title" label="Titulo" labelPlacement="stacked" placeholder="Nueva tarea"></ion-input>
         <ion-textarea [(ngModel)]="notes" label="Notas" labelPlacement="stacked" placeholder="Resumen, enlaces o detalles"></ion-textarea>
         <ion-select [(ngModel)]="priority" label="Prioridad" labelPlacement="stacked">
           <ion-select-option value="Baja">Baja</ion-select-option>
@@ -70,7 +68,7 @@
           <ion-item>
             <ion-label>
               <h3>No hay tareas guardadas</h3>
-              <p>Crea una nueva tarea para probar el almacenamiento local.</p>
+              <p>Agrega tu primera tarea usando el formulario de arriba.</p>
             </ion-label>
           </ion-item>
         </ion-list>

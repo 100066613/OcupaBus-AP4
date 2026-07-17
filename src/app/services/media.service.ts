@@ -15,22 +15,22 @@ export class MediaService {
   private readonly tracks: AudioTrack[] = [
     {
       id: 'podcast-001',
-      title: 'Guia rapida de Ionic',
-      description: 'Presenta los bloques basicos para la defensa del proyecto.',
+      title: 'Bienvenida a OcupaBus',
+      description: 'Introduccion al sistema de reporte de ocupacion de autobuses.',
       duration: '01:40',
       toneHz: 440,
     },
     {
       id: 'podcast-002',
       title: 'Conectividad y offline',
-      description: 'Resume el flujo de red, almacenamiento y sincronizacion.',
+      description: 'Como funciona el modo sin conexion y la sincronizacion automatica.',
       duration: '01:55',
       toneHz: 554,
     },
     {
       id: 'podcast-003',
-      title: 'Cierre del proyecto final',
-      description: 'Mensajes clave para la presentacion individual.',
+      title: 'Guia de uso rapido',
+      description: 'Pasos para registrar un reporte y consultar el mapa del campus.',
       duration: '02:05',
       toneHz: 659,
     },

@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Mapa y geolocalizacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">GPS + mapa interactivo</p>
+      <h1>Ubicacion actual y puntos del campus</h1>
+      <p>
+        La vista combina geolocalizacion del navegador con un mapa visual propio para mostrar marcadores y seleccionar
+        puntos de referencia.
+      </p>
+    </section>
+
+    <ion-card class="summary-card">
+      <ion-card-content>
+        <ion-text>{{ status$ | async }}</ion-text>
+        <div class="geo-row">
+          <ion-badge color="success">{{ (position$ | async)?.label }}</ion-badge>
+          <ion-badge color="tertiary">{{ (position$ | async)?.latitude | number:'1.4-4' }}, {{ (position$ | async)?.longitude | number:'1.4-4' }}</ion-badge>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="map-card">
+      <ion-card-header>
+        <div class="card-header-row">
+          <ion-card-title>Mapa del campus</ion-card-title>
+          <ion-button fill="outline" size="small" (click)="refresh()">Actualizar GPS</ion-button>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="map-canvas">
+          <div id="leaflet-map"></div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="details-card">
+      <ion-card-header>
+        <ion-card-title>Punto seleccionado</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <h3>{{ (selectedPoint$ | async)?.name }}</h3>
+        <p>{{ (selectedPoint$ | async)?.detail }}</p>
+        <ion-button expand="block" class="focus-button" (click)="focusCampus()">Centrar campus</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="details-card">
+      <ion-card-header>
+        <ion-card-title>Referencias cercanas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let point of (points$ | async) ?? []" button (click)="focus(point.id)">
+            <ion-label>
+              <h3>{{ point.name }}</h3>
+              <p>{{ point.detail }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button (click)="refresh()">
+        <ion-icon name="locate-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

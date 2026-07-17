@@ -1,3 +1,8 @@
+/**
+ * Módulo: Conectividad + Reportes Offline
+ * Responsable: Angeleen Antonio Bello Hernández (100065707)
+ * Proyecto: OcupaBus — ISW-307, Grupo Z
+ */
 import { Injectable, OnDestroy } from '@angular/core';
 import type { PluginListenerHandle } from '@capacitor/core';
 import { ConnectionStatus, Network } from '@capacitor/network';

@@ -1,5 +1,11 @@
+/**
+ * Módulo: Home + Servicios Web
+ * Responsable: Franklin Alberto Beltré Fernández (100066613)
+ * Proyecto: OcupaBus — ISW-307, Grupo Z
+ */
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   IonBadge,
   IonButton,
@@ -7,20 +13,22 @@ import {
   IonCardContent,
   IonCardHeader,
   IonCardTitle,
+  IonChip,
   IonContent,
   IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
   IonList,
-  IonText,
-  IonToolbar,
+  IonRefresher,
+  IonRefresherContent,
+  IonTextarea,
   IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
-import { addCircleOutline } from 'ionicons/icons';
+import { ApiService } from '../services/api.service';
+import { LocalStoreService } from '../services/local-store.service';
 import { NetworkBannerComponent } from '../components/network-banner/network-banner.component';
-import { BusReport, OcupacionBus } from '../models/report.model';
-import { OfflineReportService } from '../services/offline-report.service';
 
 @Component({
   selector: 'app-home',
@@ -29,6 +37,7 @@ import { OfflineReportService } from '../services/offline-report.service';
   styleUrls: ['home.page.scss'],
   imports: [
     CommonModule,
+    FormsModule,
     NetworkBannerComponent,
     IonBadge,
     IonButton,
@@ -36,44 +45,44 @@ import { OfflineReportService } from '../services/offline-report.service';
     IonCardContent,
     IonCardHeader,
     IonCardTitle,
+    IonChip,
     IonContent,
     IonHeader,
     IonIcon,
     IonItem,
     IonLabel,
     IonList,
-    IonText,
-    IonToolbar,
+    IonRefresher,
+    IonRefresherContent,
+    IonTextarea,
     IonTitle,
+    IonToolbar,
   ],
 })
-export class HomePage {
-  protected readonly addCircleOutline = addCircleOutline;
-  protected readonly pendingReports$ = this.offlineReportService.pendingReports$;
-  protected readonly sentReports$ = this.offlineReportService.sentReports$;
-  protected readonly message$ = this.offlineReportService.message$;
+export class HomePage implements OnInit {
+  feedback = '';
+  readonly news$ = this.api.news$;
+  readonly status$ = this.api.status$;
+  readonly tasks$ = this.store.tasks$;
+  readonly captures$ = this.store.captures$;
+  readonly settings$ = this.store.settings$;
 
-  constructor(private readonly offlineReportService: OfflineReportService) {}
+  constructor(
+    private readonly api: ApiService,
+    private readonly store: LocalStoreService,
+  ) {}
 
-  async registrarReporte(ocupacion: OcupacionBus): Promise<void> {
-    const reporte: BusReport = {
-      id: this.crearId(),
-      tipo: 'ocupacion_bus',
-      ocupacion,
-      lat: 18.4861,
-      lng: -69.9312,
-      fecha: new Date().toISOString(),
-      sincronizado: false,
-    };
-
-    await this.offlineReportService.guardarReporte(reporte);
+  async ngOnInit(): Promise<void> {
+    await this.api.loadNews();
   }
 
-  private crearId(): string {
-    if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) {
-      return crypto.randomUUID();
-    }
+  async refresh(event: CustomEvent): Promise<void> {
+    await this.api.loadNews();
+    (event.target as HTMLIonRefresherElement | null)?.complete();
+  }
 
-    return `rep_${Date.now()}_${Math.random().toString(16).slice(2)}`;
+  async sendFeedback(): Promise<void> {
+    await this.api.sendFeedback(this.feedback);
+    this.feedback = '';
   }
 }

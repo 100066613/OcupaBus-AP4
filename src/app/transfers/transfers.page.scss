@@ -1,0 +1,103 @@
+ion-content {
+  --background: linear-gradient(180deg, #f5f7ff 0%, #eefbf3 100%);
+}
+
+.page-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.hero,
+.form-card,
+.list-card {
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  padding: 1.25rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #14532d 0%, #0f766e 100%);
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.92;
+}
+
+.hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 64ch;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.55;
+}
+
+.form-card,
+.list-card {
+  margin-top: 1rem;
+}
+
+.add-button {
+  margin-top: 1rem;
+  --background: #14532d;
+}
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+ion-input,
+ion-select,
+ion-textarea {
+  margin-bottom: 0.85rem;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+ion-label h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+ion-label p {
+  margin: 0.25rem 0 0;
+  color: #475569;
+}
+
+ion-label small {
+  display: inline-block;
+  margin-top: 0.35rem;
+  color: #64748b;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #64748b;
+}
+
+ion-badge {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .card-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

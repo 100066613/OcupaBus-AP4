@@ -1,91 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>OcupaBus AP4</ion-title>
+    <ion-title>OcupaBus</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div class="page-shell">
     <section class="hero">
       <ion-badge color="light">Ionic + Angular + Capacitor</ion-badge>
-      <h1>Deteccion de red y modo offline funcional</h1>
+      <h1>Proyecto final completo para la defensa</h1>
       <p>
-        Esta version permite ver el estado de conexion en tiempo real, registrar ocupacion del bus y conservar
-        reportes cuando el dispositivo se queda sin internet.
+        La app integra conectividad, almacenamiento, geolocalizacion, multimedia, camara y servicios web en una sola
+        experiencia pensada para demostrar el curso completo.
       </p>
+
+      <div class="hero-actions">
+        <ion-chip color="success"><ion-icon name="sparkles-outline"></ion-icon><ion-label>Dashboard</ion-label></ion-chip>
+        <ion-chip color="tertiary"><ion-icon name="refresh-outline"></ion-icon><ion-label>{{ status$ | async }}</ion-label></ion-chip>
+      </div>
     </section>
 
     <app-network-banner></app-network-banner>
 
-    <ion-card class="action-card">
+    <section class="stats-grid">
+      <ion-card>
+        <ion-card-content>
+          <h3>{{ (tasks$ | async)?.length || 0 }}</h3>
+          <p>Tareas guardadas</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <h3>{{ (captures$ | async)?.length || 0 }}</h3>
+          <p>Capturas y fotos</p>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <h3>{{ (settings$ | async)?.name }}</h3>
+          <p>Perfil activo</p>
+        </ion-card-content>
+      </ion-card>
+    </section>
+
+    <ion-card class="story-card">
       <ion-card-header>
-        <ion-card-title>Registrar reporte</ion-card-title>
+        <ion-card-title>Servicios web</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <p class="card-copy">Toca una opcion para crear un reporte de ocupacion con geolocalizacion fija de ejemplo.</p>
-
-        <div class="button-grid">
-          <ion-button expand="block" color="success" (click)="registrarReporte('vacío')">
-            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
-            Vacío
-          </ion-button>
-          <ion-button expand="block" color="warning" (click)="registrarReporte('medio')">
-            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
-            Medio
-          </ion-button>
-          <ion-button expand="block" color="danger" (click)="registrarReporte('lleno')">
-            <ion-icon slot="start" [icon]="addCircleOutline"></ion-icon>
-            Lleno
-          </ion-button>
-        </div>
-
-        <ion-text class="status-copy">
-          {{ message$ | async }}
-        </ion-text>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card class="list-card">
-      <ion-card-header>
-        <ion-card-title>Reportes pendientes</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-list lines="none" class="report-list">
-          <ion-item *ngFor="let report of (pendingReports$ | async) ?? []">
+        <p class="card-copy">Consume noticias de ejemplo y permite enviar retroalimentacion al servicio web.</p>
+        <ion-list lines="none" class="news-list">
+          <ion-item *ngFor="let item of (news$ | async) ?? []">
             <ion-label>
-              <h3>{{ report.ocupacion }}</h3>
-              <p>{{ report.fecha }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item *ngIf="((pendingReports$ | async) ?? []).length === 0">
-            <ion-label>
-              <h3>No hay reportes pendientes</h3>
-              <p>Cuando la app esté offline, los reportes quedarán aquí hasta sincronizarse.</p>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.summary }}</p>
+              <small>{{ item.source }} · {{ item.publishedAt }}</small>
             </ion-label>
           </ion-item>
         </ion-list>
       </ion-card-content>
     </ion-card>
 
-    <ion-card class="list-card">
+    <ion-card class="story-card">
       <ion-card-header>
-        <ion-card-title>Reportes enviados</ion-card-title>
+        <ion-card-title>Enviar feedback</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <ion-list lines="none" class="report-list">
-          <ion-item *ngFor="let report of (sentReports$ | async) ?? []">
-            <ion-label>
-              <h3>{{ report.ocupacion }}</h3>
-              <p>{{ report.fecha }}</p>
-            </ion-label>
-          </ion-item>
-          <ion-item *ngIf="((sentReports$ | async) ?? []).length === 0">
-            <ion-label>
-              <h3>Aun no hay reportes enviados</h3>
-              <p>Los reportes online se agregaran automaticamente aqui.</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+        <ion-textarea [(ngModel)]="feedback" label="Mensaje" labelPlacement="stacked" placeholder="Escribe un comentario breve para el servicio web"></ion-textarea>
+        <ion-button expand="block" class="send-button" (click)="sendFeedback()">
+          <ion-icon slot="start" name="send-outline"></ion-icon>
+          Enviar mensaje
+        </ion-button>
       </ion-card-content>
     </ion-card>
   </div>

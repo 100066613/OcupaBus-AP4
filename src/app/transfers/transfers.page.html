@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Tareas y almacenamiento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Interfaces + almacenamiento</p>
+      <h1>CRUD local con gestos</h1>
+      <p>
+        Esta pantalla demuestra persistencia local, reordenamiento, eliminacion deslizando y refresco manual para
+        cubrir los temas de interfaz y almacenamiento.
+      </p>
+    </section>
+
+    <ion-card class="form-card">
+      <ion-card-header>
+        <ion-card-title>Nueva tarea</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input [(ngModel)]="title" label="Titulo" labelPlacement="stacked" placeholder="Preparar defensa"></ion-input>
+        <ion-textarea [(ngModel)]="notes" label="Notas" labelPlacement="stacked" placeholder="Resumen, enlaces o detalles"></ion-textarea>
+        <ion-select [(ngModel)]="priority" label="Prioridad" labelPlacement="stacked">
+          <ion-select-option value="Baja">Baja</ion-select-option>
+          <ion-select-option value="Media">Media</ion-select-option>
+          <ion-select-option value="Alta">Alta</ion-select-option>
+        </ion-select>
+        <ion-button expand="block" class="add-button" (click)="addTask()">
+          <ion-icon slot="start" name="add-outline"></ion-icon>
+          Guardar tarea
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="list-card">
+      <ion-card-header>
+        <div class="card-header-row">
+          <ion-card-title>Tareas guardadas</ion-card-title>
+          <ion-button fill="clear" size="small" (click)="clearCompleted()">Limpiar completadas</ion-button>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-reorder-group [disabled]="false" (ionItemReorder)="reorder($event)">
+          <ion-item-sliding *ngFor="let task of (tasks$ | async) ?? []; trackBy: trackById">
+            <ion-item>
+              <ion-checkbox slot="start" [checked]="task.completed" (ionChange)="toggleTask(task)"></ion-checkbox>
+              <ion-label>
+                <h3 [class.done]="task.completed">{{ task.title }}</h3>
+                <p>{{ task.notes }}</p>
+                <small>{{ task.priority }} · {{ task.createdAt | date:'short' }}</small>
+              </ion-label>
+              <ion-badge [color]="task.priority === 'Alta' ? 'danger' : task.priority === 'Media' ? 'warning' : 'success'">
+                {{ task.priority }}
+              </ion-badge>
+              <ion-reorder slot="end"></ion-reorder>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="removeTask(task)">Eliminar</ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-reorder-group>
+
+        <ion-list lines="none" *ngIf="((tasks$ | async) ?? []).length === 0">
+          <ion-item>
+            <ion-label>
+              <h3>No hay tareas guardadas</h3>
+              <p>Crea una nueva tarea para probar el almacenamiento local.</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

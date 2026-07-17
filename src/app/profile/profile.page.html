@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Multimedia y perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollY]="true" [scrollEvents]="true">
+  <div class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Audio + camara + perfil</p>
+      <h1>Reproductor, captura de imagen y ajustes</h1>
+      <p>
+        Esta pantalla cierra el proyecto con multimedia local, captura de fotos y un perfil sencillo respaldado por
+        almacenamiento local.
+      </p>
+    </section>
+
+    <ion-card class="profile-card">
+      <ion-card-header>
+        <ion-card-title>Perfil activo</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item>
+            <ion-label>
+              <h3>{{ (settings$ | async)?.name }}</h3>
+              <p>{{ (settings$ | async)?.program }}</p>
+              <small>{{ (settings$ | async)?.email }}</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+        <div class="badges">
+          <ion-badge color="success">Notificaciones {{ (settings$ | async)?.notifications ? 'activas' : 'apagadas' }}</ion-badge>
+          <ion-badge color="tertiary">Modo offline {{ (settings$ | async)?.offlineMode ? 'listo' : 'desactivado' }}</ion-badge>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="audio-card">
+      <ion-card-header>
+        <ion-card-title>Reproductor de audio</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let track of (tracks$ | async) ?? []" button (click)="selectTrack(track.id)">
+            <ion-label>
+              <h3>{{ track.title }}</h3>
+              <p>{{ track.description }}</p>
+            </ion-label>
+            <ion-badge slot="end">{{ track.duration }}</ion-badge>
+          </ion-item>
+        </ion-list>
+
+        <div class="player-shell">
+          <ion-badge color="success">{{ (activeTrack$ | async)?.title }}</ion-badge>
+          <div class="control-row">
+            <ion-button fill="outline" (click)="play()"><ion-icon slot="start" name="play-outline"></ion-icon>Play</ion-button>
+            <ion-button fill="outline" (click)="pause()"><ion-icon slot="start" name="pause-outline"></ion-icon>Pausa</ion-button>
+            <ion-button fill="outline" (click)="stop()"><ion-icon slot="start" name="stop-outline"></ion-icon>Stop</ion-button>
+          </div>
+          <ion-range min="0" max="12" [value]="progress$ | async" (ionChange)="seek($any($event.detail.value))"></ion-range>
+          <ion-text>Estado: {{ playback$ | async }}</ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="capture-card">
+      <ion-card-header>
+        <ion-card-title>Captura con camara</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input [(ngModel)]="photoTitle" label="Titulo de la captura" labelPlacement="stacked"></ion-input>
+        <input #fileInput type="file" accept="image/*" capture="environment" hidden (change)="handleFile($event)" />
+        <ion-button expand="block" class="camera-button" (click)="openFilePicker()">
+          <ion-icon slot="start" name="camera-outline"></ion-icon>
+          Tomar o subir foto
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="capture-card">
+      <ion-card-header>
+        <ion-card-title>Fotos guardadas</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="capture-grid">
+          <article class="capture-item" *ngFor="let capture of (captures$ | async) ?? []">
+            <img [src]="capture.preview" [alt]="capture.title" />
+            <div>
+              <h3>{{ capture.title }}</h3>
+              <p>{{ capture.createdAt }}</p>
+            </div>
+          </article>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="capture-card">
+      <ion-card-header>
+        <ion-card-title>Registro rapido</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-input [(ngModel)]="qrCode" label="Codigo o nombre" labelPlacement="stacked"></ion-input>
+        <ion-button expand="block" fill="outline" (click)="saveQr()">
+          <ion-icon slot="start" name="qr-code-outline"></ion-icon>
+          Guardar dato del perfil
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

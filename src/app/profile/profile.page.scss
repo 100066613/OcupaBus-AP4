@@ -1,0 +1,131 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+ion-content {
+  --background: linear-gradient(180deg, #f8fbff 0%, #effcf3 100%);
+  --overflow: auto;
+}
+
+ion-range {
+  touch-action: pan-y;
+}
+
+.page-shell {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.hero,
+.profile-card,
+.audio-card,
+.capture-card {
+  border-radius: 1.5rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.hero {
+  padding: 1.25rem;
+  color: #fff;
+  background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.hero h1 {
+  margin: 0 0 0.45rem;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  line-height: 1;
+}
+
+.hero p {
+  margin: 0;
+  max-width: 64ch;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.55;
+}
+
+.profile-card,
+.audio-card,
+.capture-card {
+  margin-top: 1rem;
+}
+
+.badges,
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.player-shell {
+  margin-top: 0.85rem;
+}
+
+.capture-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.capture-item {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 0.85rem;
+  align-items: center;
+  padding: 0.65rem;
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+
+.capture-item img {
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+.capture-item h3,
+ion-label h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.capture-item p,
+ion-label p,
+ion-label small {
+  margin: 0.2rem 0 0;
+  color: #64748b;
+}
+
+.camera-button {
+  --background: #1d4ed8;
+  margin-top: 0.25rem;
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+@media (max-width: 640px) {
+  .control-row {
+    flex-direction: column;
+  }
+
+  .capture-item {
+    grid-template-columns: 1fr;
+  }
+
+  .capture-item img {
+    width: 100%;
+    height: 180px;
+  }
+}

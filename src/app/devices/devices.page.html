@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Conectividad y reportes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Conectividad</p>
+      <h1>Red, Bluetooth, NFC y reportes offline</h1>
+      <p>
+        Este modulo concentra el estado de red, la simulacion de BLE y NFC, y el flujo offline de reportes de ocupacion
+        del bus.
+      </p>
+    </section>
+
+    <app-network-banner></app-network-banner>
+
+    <ion-card class="action-card">
+      <ion-card-header>
+        <ion-card-title>Reportes de ocupacion</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="button-grid">
+          <ion-button expand="block" color="success" (click)="registrarReporte('vacío')">Vacío</ion-button>
+          <ion-button expand="block" color="warning" (click)="registrarReporte('medio')">Medio</ion-button>
+          <ion-button expand="block" color="danger" (click)="registrarReporte('lleno')">Lleno</ion-button>
+        </div>
+        <ion-text class="status-copy">{{ reportMessage$ | async }}</ion-text>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="split-card">
+      <ion-card-header>
+        <ion-card-title>Bluetooth y NFC</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="card-copy">La demo muestra equipos cercanos y un flujo simple de lectura/escritura NFC.</p>
+        <ion-input [(ngModel)]="nfcMessage" label="Mensaje NFC" labelPlacement="stacked"></ion-input>
+        <div class="button-row">
+          <ion-button fill="outline" (click)="discoverBluetooth()">Buscar BLE</ion-button>
+          <ion-button fill="outline" (click)="readNfc()">Leer NFC</ion-button>
+          <ion-button fill="outline" (click)="writeNfc()">Escribir NFC</ion-button>
+        </div>
+
+        <ion-list lines="none" class="device-list">
+          <ion-item *ngFor="let device of (bluetoothDevices$ | async) ?? []">
+            <ion-icon slot="start" name="bluetooth-outline"></ion-icon>
+            <ion-label>
+              <h3>{{ device.name }}</h3>
+              <p>{{ device.detail }}</p>
+            </ion-label>
+            <ion-chip slot="end" [color]="device.status === 'Emparejado' ? 'success' : 'medium'">{{ device.status }}</ion-chip>
+            <ion-button slot="end" size="small" (click)="pairBluetooth(device.id)">Conectar</ion-button>
+          </ion-item>
+        </ion-list>
+
+        <ion-card class="nfc-card">
+          <ion-card-content>
+            <h3>Ultima lectura NFC</h3>
+            <p>{{ nfcText$ | async }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="split-card">
+      <ion-card-header>
+        <div class="card-header-row">
+          <ion-card-title>Reportes pendientes</ion-card-title>
+          <ion-button fill="clear" size="small" (click)="clearLogs()">Limpiar logs</ion-button>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let report of (pendingReports$ | async) ?? []">
+            <ion-label>
+              <h3>{{ report.ocupacion }}</h3>
+              <p>{{ report.fecha }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item *ngIf="((pendingReports$ | async) ?? []).length === 0">
+            <ion-label>
+              <h3>No hay reportes pendientes</h3>
+              <p>Cuando la red caiga, los nuevos reportes quedaran guardados aqui.</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card class="split-card">
+      <ion-card-header>
+        <ion-card-title>Historial de conectividad</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="none">
+          <ion-item *ngFor="let log of (logs$ | async) ?? []">
+            <ion-label>
+              <h3>{{ log.source }} · {{ log.title }}</h3>
+              <p>{{ log.detail }}</p>
+              <small>{{ log.when }}</small>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

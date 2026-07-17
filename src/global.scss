@@ -16,13 +16,31 @@
 
 @import '@ionic/angular/css/palettes/dark.system.css';
 
-html,
-body {
-  height: 100%;
-  background: #eef2ff;
-}
-
 body {
   margin: 0;
+  background: #eef2ff;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ionic sets body { touch-action: manipulation } via structure.css.
+   This cascades into the ion-content shadow DOM scroll container and
+   prevents mousedown from granting focus on pointer-activated inputs.
+   Fix 1: reset native form elements in the light DOM. */
+input, textarea, select, [contenteditable] {
+  touch-action: auto;
+}
+
+/* Fix 2: reset touch-action on ion-content's scroll container (shadow DOM)
+   via the exported CSS part. pan-x pan-y pinch-zoom is what Ionic intends
+   (see content.css) — body:manipulation was overriding it through inheritance. */
+ion-content::part(scroll) {
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+/* Fix 3: ion-tabs renders a placeholder ion-router-outlet with no children
+   that sits on top of all page content with position:absolute and
+   pointer-events:auto, intercepting every click/tap. An empty outlet
+   has no interactive content so pointer-events:none is safe. */
+ion-tabs ion-router-outlet:empty {
+  pointer-events: none;
 }

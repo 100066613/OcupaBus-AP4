@@ -1,21 +1,24 @@
 Inicio
 ↓
-La app consulta el estado de red
+La app abre el tablero principal
 ↓
-¿Hay conexión?
-├── Sí → Mostrar banner online y permitir envío inmediato
-└── No → Mostrar banner offline y guardar reporte en localStorage
+¿El usuario accede a una pestaña?
+├── Inicio → Noticias, feedback y resumen general
+├── Tareas → CRUD local con gestos y almacenamiento
+├── Conectividad → Red, offline, Bluetooth y NFC
+├── Mapa → GPS y puntos de referencia
+└── Media → Audio, captura de imagen y perfil
 ↓
-El usuario crea un reporte de ocupación
+¿Hay conexión a internet?
+├── Sí → Consumir noticias y enviar feedback
+└── No → Mostrar estado offline y conservar datos en localStorage
 ↓
-¿La red sigue activa?
-├── Sí → Marcar como enviado y actualizar la lista de reportes enviados
-└── No → Guardar como pendiente y mostrar mensaje al usuario
+¿El usuario crea o modifica datos?
+├── Sí → Guardar en almacenamiento local y actualizar la interfaz
+└── No → Mantener la vista actual
 ↓
-La app escucha cambios de red
-↓
-¿Se recuperó la conexión?
-├── Sí → Sincronizar reportes pendientes y limpiar localStorage
-└── No → Mantener el modo offline
+¿Se usa geolocalización o captura multimedia?
+├── Sí → Obtener ubicación o leer imagen seleccionada
+└── No → Seguir navegando entre módulos
 ↓
 Fin

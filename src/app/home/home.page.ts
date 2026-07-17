@@ -22,6 +22,8 @@ import {
   IonList,
   IonRefresher,
   IonRefresherContent,
+  IonSpinner,
+  IonText,
   IonTextarea,
   IonTitle,
   IonToolbar,
@@ -54,6 +56,8 @@ import { NetworkBannerComponent } from '../components/network-banner/network-ban
     IonList,
     IonRefresher,
     IonRefresherContent,
+    IonSpinner,
+    IonText,
     IonTextarea,
     IonTitle,
     IonToolbar,
@@ -63,6 +67,7 @@ export class HomePage implements OnInit {
   feedback = '';
   readonly news$ = this.api.news$;
   readonly status$ = this.api.status$;
+  readonly feedbackStatus$ = this.api.feedbackStatus$;
   readonly tasks$ = this.store.tasks$;
   readonly captures$ = this.store.captures$;
   readonly settings$ = this.store.settings$;
@@ -82,7 +87,9 @@ export class HomePage implements OnInit {
   }
 
   async sendFeedback(): Promise<void> {
-    await this.api.sendFeedback(this.feedback);
-    this.feedback = '';
+    const success = await this.api.sendFeedback(this.feedback);
+    if (success) {
+      this.feedback = '';
+    }
   }
 }

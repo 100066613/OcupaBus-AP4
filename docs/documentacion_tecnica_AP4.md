@@ -6,13 +6,13 @@
 
 El proyecto se desarrolló en equipo para cubrir los temas vistos en la asignatura y distribuir responsabilidades por módulo.
 
-| Integrante | Matrícula | Rol | Responsabilidad |
-| --- | ---: | --- | --- |
-| Franklin Alberto Beltré Fernández | 100066613 | Líder técnico | Coordinación general, revisión de avances y estructura del repositorio. |
-| Smailyn Ceballo Viva | 100064094 | Diseñador de interfaz | Diseño visual, jerarquía de pantallas y consistencia de estilo. |
-| Angeleen Antonio Bello Hernández | 100065707 | Programador funcional | Módulo de conectividad, almacenamiento offline y lógica de interacción. |
-| Francisco Ferreira | 100052613 | Documentador / tester | Pruebas, capturas y redacción de la documentación técnica. |
-| Emmanuel Espinal | 100063182 | Investigador de datos / community manager | Apoyo en el módulo de contenido, datos de demostración y validación de flujo. |
+| Integrante                        | Matrícula | Rol                                       | Responsabilidad                                                               |
+| --------------------------------- | ---------:| ----------------------------------------- | ----------------------------------------------------------------------------- |
+| Franklin Alberto Beltré Fernández | 100066613 | Líder técnico                             | Coordinación general, revisión de avances y estructura del repositorio.       |
+| Smailyn Ceballo Viva              | 100064094 | Diseñador de interfaz                     | Diseño visual, jerarquía de pantallas y consistencia de estilo.               |
+| Angeleen Antonio Bello Hernández  | 100065707 | Programador funcional                     | Módulo de conectividad, almacenamiento offline y lógica de interacción.       |
+| Francisco Ferreira                | 100052613 | Documentador / tester                     | Pruebas, capturas y redacción de la documentación técnica.                    |
+| Emmanuel Espinal                  | 100063182 | Investigador de datos / community manager | Apoyo en el módulo de contenido, datos de demostración y validación de flujo. |
 
 ### 2. Introducción y objetivos
 
@@ -60,17 +60,17 @@ Estudiantes de la asignatura ISW-307 y docentes que evalúan el proyecto prácti
 
 ### 3. Modelo de negocio Canvas
 
-| Bloque | Descripción |
-| --- | --- |
-| Segmento de clientes | Estudiantes y docentes del curso ISW-307. |
-| Propuesta de valor | Reúne en una sola app los temas obligatorios del curso con una interfaz clara para defender por módulos. |
-| Canales | Navegador web, Android y distribución del repositorio GitHub. |
-| Relación con el cliente | Uso directo por el estudiante, demostración en defensa y retroalimentación visual inmediata. |
-| Fuentes de ingreso | Proyecto académico sin monetización. |
-| Recursos clave | Equipo de desarrollo, Angular, Ionic, Capacitor, navegador y dispositivo Android. |
-| Actividades clave | Diseño, desarrollo, pruebas, documentación y presentación. |
-| Socios clave | UAPA, documentación oficial de Ionic, Angular, Capacitor y APIs del navegador. |
-| Estructura de costos | Tiempo de desarrollo, pruebas en dispositivo, documentación e instalación de dependencias. |
+| Bloque                  | Descripción                                                                                              |
+| ----------------------- | -------------------------------------------------------------------------------------------------------- |
+| Segmento de clientes    | Estudiantes y docentes del curso ISW-307.                                                                |
+| Propuesta de valor      | Reúne en una sola app los temas obligatorios del curso con una interfaz clara para defender por módulos. |
+| Canales                 | Navegador web, Android y distribución del repositorio GitHub.                                            |
+| Relación con el cliente | Uso directo por el estudiante, demostración en defensa y retroalimentación visual inmediata.             |
+| Fuentes de ingreso      | Proyecto académico sin monetización.                                                                     |
+| Recursos clave          | Equipo de desarrollo, Angular, Ionic, Capacitor, navegador y dispositivo Android.                        |
+| Actividades clave       | Diseño, desarrollo, pruebas, documentación y presentación.                                               |
+| Socios clave            | UAPA, documentación oficial de Ionic, Angular, Capacitor y APIs del navegador.                           |
+| Estructura de costos    | Tiempo de desarrollo, pruebas en dispositivo, documentación e instalación de dependencias.               |
 
 ### 4. Arquitectura técnica
 
@@ -260,20 +260,20 @@ this.store.updateSettings({ name: this.qrCode });
 
 #### 7.1 Tabla de pruebas
 
-| Prueba | Resultado |
-| --- | --- |
-| Navegación por tabs | Correcto |
-| Carga de noticias | Correcto |
-| Envío de feedback | Correcto |
-| Crear tarea | Correcto |
-| Eliminar tarea con swipe | Correcto |
-| Reordenar tareas | Correcto |
-| Detección de red | Correcto |
-| Guardado offline | Correcto |
-| Sincronización al volver la red | Correcto |
-| Selección de punto en mapa | Correcto |
-| Reproducción de audio | Correcto |
-| Captura de imagen por archivo | Correcto |
+| Prueba                          | Resultado |
+| ------------------------------- | --------- |
+| Navegación por tabs             | Correcto  |
+| Carga de noticias               | Correcto  |
+| Envío de feedback               | Correcto  |
+| Crear tarea                     | Correcto  |
+| Eliminar tarea con swipe        | Correcto  |
+| Reordenar tareas                | Correcto  |
+| Detección de red                | Correcto  |
+| Guardado offline                | Correcto  |
+| Sincronización al volver la red | Correcto  |
+| Selección de punto en mapa      | Correcto  |
+| Reproducción de audio           | Correcto  |
+| Captura de imagen por archivo   | Correcto  |
 
 #### 7.2 Instrucciones de instalación
 
@@ -328,13 +328,15 @@ El proyecto permite demostrar de forma integrada las unidades principales de la 
 
 #### Anexo B. Capturas de pantalla
 
-- `documentacion/01_navegador_conectado.png`
-- `documentacion/02_navegador_offline.png`
-- `documentacion/03_emulador_conectado.png`
-- `documentacion/04_emulador_conectado_reporte_enviado.png`
-- `documentacion/05_emulador_offline.png`
-- `documentacion/06_emulador_offline_reporte_pendiente.png`
+No versionadas en el repositorio. Disponibles en el repositorio institucional de evidencias (ver `docs/ACADEMIC_EVIDENCE.md`):
+
+- `01_navegador_conectado.png`
+- `02_navegador_offline.png`
+- `03_emulador_conectado.png`
+- `04_emulador_conectado_reporte_enviado.png`
+- `05_emulador_offline.png`
+- `06_emulador_offline_reporte_pendiente.png`
 
 #### Anexo C. Flujo general
 
-Ver `documentacion/diagrama_flujo.txt`.
+Ver `docs/diagrama_flujo.txt`.

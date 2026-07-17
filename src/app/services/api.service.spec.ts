@@ -71,7 +71,7 @@ describe('ApiService', () => {
     );
 
     await service.sendFeedback('Buena aplicacion');
-    expect(service.status).toContain('enviada');
+    expect(service.status).toContain('Comentario #101');
 
     window.fetch = originalFetch;
   });

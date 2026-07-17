@@ -16,12 +16,12 @@ El proyecto implementa pruebas unitarias para los servicios con la siguiente est
 
 ## 2. Framework y configuración
 
-| Herramienta | Versión | Rol |
-|---|---|---|
-| Jasmine | ~5.1.0 | Framework de pruebas (suites, specs, matchers) |
-| Karma | ~6.4.0 | Ejecutor de pruebas en navegador |
-| karma-chrome-launcher | ~3.2.0 | Lanza Chrome Headless para ejecutar las pruebas |
-| karma-coverage | ~2.2.0 | Reporte de cobertura (configurado, no verificado en detalle) |
+| Herramienta           | Versión | Rol                                                          |
+| --------------------- | ------- | ------------------------------------------------------------ |
+| Jasmine               | ~5.1.0  | Framework de pruebas (suites, specs, matchers)               |
+| Karma                 | ~6.4.0  | Ejecutor de pruebas en navegador                             |
+| karma-chrome-launcher | ~3.2.0  | Lanza Chrome Headless para ejecutar las pruebas              |
+| karma-coverage        | ~2.2.0  | Reporte de cobertura (configurado, no verificado en detalle) |
 
 Configuración del ejecutor: `karma.conf.js` en la raíz del proyecto.
 Configuración TypeScript para pruebas: `tsconfig.spec.json`.
@@ -48,16 +48,16 @@ npm test -- --no-progress --browsers=ChromeHeadless
 
 ## 4. Distribución de pruebas
 
-| Archivo spec | Suite | Pruebas |
-|---|---|---:|
-| `api.service.spec.ts` | `ApiService` | 15 |
-| `local-store.service.spec.ts` | `LocalStoreService` | 17 |
-| `geolocation.service.spec.ts` | `GeolocationService` | 16 |
-| `connectivity-lab.service.spec.ts` | `ConnectivityLabService` | 20 |
-| `offline-report.service.spec.ts` | `OfflineReportService` | 14 |
-| `app.component.spec.ts` | `AppComponent` | 1 |
-| `home.page.spec.ts` | `HomePage` | 1 |
-| **Total** | | **84** |
+| Archivo spec                       | Suite                    | Pruebas |
+| ---------------------------------- | ------------------------ | -------:|
+| `api.service.spec.ts`              | `ApiService`             | 15      |
+| `local-store.service.spec.ts`      | `LocalStoreService`      | 17      |
+| `geolocation.service.spec.ts`      | `GeolocationService`     | 16      |
+| `connectivity-lab.service.spec.ts` | `ConnectivityLabService` | 20      |
+| `offline-report.service.spec.ts`   | `OfflineReportService`   | 14      |
+| `app.component.spec.ts`            | `AppComponent`           | 1       |
+| `home.page.spec.ts`                | `HomePage`               | 1       |
+| **Total**                          |                          | **84**  |
 
 > `src/app/services/media.service.ts` no tiene archivo spec asociado.
 
@@ -128,47 +128,47 @@ npm test -- --no-progress --browsers=ChromeHeadless
 
 ### Home
 
-| Escenario | Pasos | Resultado esperado |
-|---|---|---|
+| Escenario         | Pasos                             | Resultado esperado          |
+| ----------------- | --------------------------------- | --------------------------- |
 | Carga de noticias | Abrir `/tabs/home` con red activa | Noticias de JSONPlaceholder |
-| Fallback sin red | Desconectar red y recargar | 3 noticias semilla |
-| Envío de feedback | Escribir mensaje y pulsar Enviar | Mensaje de confirmación |
-| Feedback vacío | Pulsar Enviar sin texto | Mensaje de error |
+| Fallback sin red  | Desconectar red y recargar        | 3 noticias semilla          |
+| Envío de feedback | Escribir mensaje y pulsar Enviar  | Mensaje de confirmación     |
+| Feedback vacío    | Pulsar Enviar sin texto           | Mensaje de error            |
 
 ### Tareas
 
-| Escenario | Pasos | Resultado esperado |
-|---|---|---|
-| Crear tarea | Completar formulario y pulsar Agregar | Tarea aparece al inicio de la lista |
-| Persistencia | Recargar la página | Las tareas siguen presentes |
-| Eliminar por swipe | Deslizar tarea a la izquierda | Botón eliminar visible; tarea removida |
-| Reordenar | Arrastrar ícono de reorden | El orden cambia y persiste |
+| Escenario          | Pasos                                 | Resultado esperado                     |
+| ------------------ | ------------------------------------- | -------------------------------------- |
+| Crear tarea        | Completar formulario y pulsar Agregar | Tarea aparece al inicio de la lista    |
+| Persistencia       | Recargar la página                    | Las tareas siguen presentes            |
+| Eliminar por swipe | Deslizar tarea a la izquierda         | Botón eliminar visible; tarea removida |
+| Reordenar          | Arrastrar ícono de reorden            | El orden cambia y persiste             |
 
 ### Conectividad
 
-| Escenario | Pasos | Resultado esperado |
-|---|---|---|
-| Banner de estado | Desconectar / reconectar red | Banner cambia entre online y offline |
-| Reporte offline | Sin red, registrar reporte | Aparece en "Pendientes" |
-| Sincronización | Reconectar red | Los pendientes pasan a "Enviados" |
-| Bluetooth (Chrome) | Pulsar escanear con BT habilitado | Diálogo de selección de dispositivo |
+| Escenario          | Pasos                             | Resultado esperado                   |
+| ------------------ | --------------------------------- | ------------------------------------ |
+| Banner de estado   | Desconectar / reconectar red      | Banner cambia entre online y offline |
+| Reporte offline    | Sin red, registrar reporte        | Aparece en "Pendientes"              |
+| Sincronización     | Reconectar red                    | Los pendientes pasan a "Enviados"    |
+| Bluetooth (Chrome) | Pulsar escanear con BT habilitado | Diálogo de selección de dispositivo  |
 
 ### Mapa
 
-| Escenario | Pasos | Resultado esperado |
-|---|---|---|
-| Carga del mapa | Ir a `/tabs/map` | Mapa de OpenStreetMap visible |
-| Puntos de referencia | Ver mapa | 5 marcadores teal del campus |
-| GPS | Dar permiso y pulsar Actualizar | Marcador azul en posición real |
-| Centrar | Pulsar "Centrar campus" | Mapa centra en entrada UAPA |
+| Escenario            | Pasos                           | Resultado esperado             |
+| -------------------- | ------------------------------- | ------------------------------ |
+| Carga del mapa       | Ir a `/tabs/map`                | Mapa de OpenStreetMap visible  |
+| Puntos de referencia | Ver mapa                        | 5 marcadores teal del campus   |
+| GPS                  | Dar permiso y pulsar Actualizar | Marcador azul en posición real |
+| Centrar              | Pulsar "Centrar campus"         | Mapa centra en entrada UAPA    |
 
 ### Media
 
-| Escenario | Pasos | Resultado esperado |
-|---|---|---|
-| Reproducir audio | Seleccionar pista → Play | Tono reproducido |
-| Capturar imagen | Pulsar "Tomar o subir foto" | Imagen aparece en grilla |
-| Persistencia de imágenes | Recargar página | Las imágenes permanecen |
+| Escenario                | Pasos                       | Resultado esperado       |
+| ------------------------ | --------------------------- | ------------------------ |
+| Reproducir audio         | Seleccionar pista → Play    | Tono reproducido         |
+| Capturar imagen          | Pulsar "Tomar o subir foto" | Imagen aparece en grilla |
+| Persistencia de imágenes | Recargar página             | Las imágenes permanecen  |
 
 ---
 

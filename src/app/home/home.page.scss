@@ -38,6 +38,16 @@ ion-content {
   margin-top: 1rem;
 }
 
+.hero-chip {
+  --background: rgba(255, 255, 255, 0.16);
+  --color: #ffffff;
+  font-weight: 700;
+}
+
+.hero-chip ion-icon {
+  color: #ffffff;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -86,6 +96,25 @@ ion-content {
   margin-top: 1rem;
   --background: #14532d;
   --border-radius: 16px;
+}
+
+.feedback-message {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.success-message {
+  color: #14532d;
+  background: rgba(20, 184, 166, 0.15);
+}
+
+.error-message {
+  color: #7f1d1d;
+  background: rgba(239, 68, 68, 0.15);
 }
 
 @media (max-width: 900px) {

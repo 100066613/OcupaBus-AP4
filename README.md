@@ -87,15 +87,7 @@ Desarrollar una aplicación móvil multiplataforma con Ionic, Angular y Capacito
 
 ## 6. Capturas de pantalla
 
-| Navegador conectado | Navegador offline | Emulador conectado |
-|---|---|---|
-| ![Navegador conectado](documentacion/01_navegador_conectado.png) | ![Navegador offline](documentacion/02_navegador_offline.png) | ![Emulador conectado](documentacion/03_emulador_conectado.png) |
-
-| Reporte enviado | Emulador offline | Reporte pendiente |
-|---|---|---|
-| ![Reporte enviado](documentacion/04_emulador_conectado_reporte_enviado.png) | ![Emulador offline](documentacion/05_emulador_offline.png) | ![Reporte pendiente](documentacion/06_emulador_offline_reporte_pendiente.png) |
-
-> Las evidencias audiovisuales completas están en el repositorio de evidencias enlazado en la sección [Documentación y evidencias](#20-documentación-y-evidencias).
+Las capturas de pantalla (navegador conectado/offline, emulador conectado/offline, reporte enviado/pendiente) no se versionan en este repositorio y están disponibles en el repositorio de evidencias enlazado en la sección [Documentación y evidencias](#20-documentación-y-evidencias). Ver el detalle de cada captura en [docs/ACADEMIC_EVIDENCE.md](docs/ACADEMIC_EVIDENCE.md).
 
 ---
 
@@ -336,7 +328,7 @@ src/
 ├── environments/
 └── theme/
 android/                    Proyecto Android nativo (Capacitor)
-documentacion/              Documento técnico, diagrama de flujo, capturas
+docs/                       Documentación técnica, guía de estilo, documento técnico, diagrama de flujo
 ```
 
 ---
@@ -402,9 +394,9 @@ Ver detalle completo: [docs/LIMITATIONS.md](docs/LIMITATIONS.md)
 | Documentación técnica (PDF / Word) | [Google Drive — Repositorio de evidencias](https://drive.google.com/drive/folders/10WL5UBNh8GSHjXJN0AkIKcnipiaj3Lo3?usp=sharing) |
 | Video general del proyecto | [Google Drive — Repositorio de evidencias](https://drive.google.com/drive/folders/10WL5UBNh8GSHjXJN0AkIKcnipiaj3Lo3?usp=sharing) |
 | Videos individuales por módulo | [Google Drive — Repositorio de evidencias](https://drive.google.com/drive/folders/10WL5UBNh8GSHjXJN0AkIKcnipiaj3Lo3?usp=sharing) |
-| Documento técnico en repositorio | [`documentacion/documentacion_tecnica_AP4.md`](documentacion/documentacion_tecnica_AP4.md) |
-| Diagrama de flujo | [`documentacion/diagrama_flujo.txt`](documentacion/diagrama_flujo.txt) |
-| Capturas de pantalla | [`documentacion/`](documentacion/) |
+| Documento técnico en repositorio | [`docs/documentacion_tecnica_AP4.md`](docs/documentacion_tecnica_AP4.md) |
+| Diagrama de flujo | [`docs/diagrama_flujo.txt`](docs/diagrama_flujo.txt) |
+| Capturas de pantalla | No versionadas en el repositorio; ver Google Drive — Repositorio de evidencias |
 | Guía de instalación detallada | [docs/INSTALLATION.md](docs/INSTALLATION.md) |
 | Arquitectura técnica | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Descripción de módulos | [docs/MODULES.md](docs/MODULES.md) |
@@ -412,6 +404,7 @@ Ver detalle completo: [docs/LIMITATIONS.md](docs/LIMITATIONS.md)
 | Compilación Android | [docs/ANDROID_BUILD.md](docs/ANDROID_BUILD.md) |
 | Evidencia académica | [docs/ACADEMIC_EVIDENCE.md](docs/ACADEMIC_EVIDENCE.md) |
 | Limitaciones técnicas | [docs/LIMITATIONS.md](docs/LIMITATIONS.md) |
+| Guía de estilo e identidad visual | [docs/Guia_Estilo_Identidad_Visual_OcupaBus.md](docs/Guia_Estilo_Identidad_Visual_OcupaBus.md) |
 
 ---
 

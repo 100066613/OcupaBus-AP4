@@ -16,6 +16,7 @@ export interface NewsItem {
   category: string;
   source: string;
   publishedAt: string;
+  author?: string;
 }
 
 export interface CampusPoint {

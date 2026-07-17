@@ -12,13 +12,13 @@ Este repositorio corresponde al **Proyecto Práctico Final** de la asignatura IS
 
 ## Integrantes del equipo
 
-| Integrante | Matrícula | Módulo |
-|---|:---:|---|
-| Franklin Alberto Beltré Fernández | 100066613 | Home + Servicios Web |
-| Smailyn Ceballo Viva | 100064094 | Tareas + Almacenamiento |
-| Angeleen Antonio Bello Hernández | 100065707 | Conectividad + Reportes Offline First |
-| Francisco Ferreira | 100052613 | Geolocalización + Mapa |
-| Emmanuel Espinal | 100063182 | Multimedia + Cámara + Perfil |
+| Integrante                        | Matrícula | Módulo                                |
+| --------------------------------- |:---------:| ------------------------------------- |
+| Franklin Alberto Beltré Fernández | 100066613 | Home + Servicios Web                  |
+| Smailyn Ceballo Viva              | 100064094 | Tareas + Almacenamiento               |
+| Angeleen Antonio Bello Hernández  | 100065707 | Conectividad + Reportes Offline First |
+| Francisco Ferreira                | 100052613 | Geolocalización + Mapa                |
+| Emmanuel Espinal                  | 100063182 | Multimedia + Cámara + Perfil          |
 
 ---
 
@@ -48,11 +48,11 @@ git checkout -b feature/nombre-descriptivo
 
 Prefijos recomendados:
 
-| Prefijo | Uso |
-|---|---|
-| `feature/` | Nueva funcionalidad |
-| `fix/` | Corrección de un error |
-| `docs/` | Cambios solo en documentación |
+| Prefijo     | Uso                                          |
+| ----------- | -------------------------------------------- |
+| `feature/`  | Nueva funcionalidad                          |
+| `fix/`      | Corrección de un error                       |
+| `docs/`     | Cambios solo en documentación                |
 | `refactor/` | Cambios de código sin alterar comportamiento |
 
 ### 3. Hacer commits
@@ -136,14 +136,14 @@ Si encuentras un problema o una tarea pendiente:
 
 Si modificas el comportamiento de un módulo, actualiza el archivo correspondiente en `docs/`:
 
-| Módulo afectado | Documento a actualizar |
-|---|---|
-| Instalación o dependencias | `docs/INSTALLATION.md` |
-| Arquitectura o servicios | `docs/ARCHITECTURE.md` |
-| Cualquier módulo funcional | `docs/MODULES.md` |
-| Pruebas | `docs/TESTING.md` |
-| Build Android | `docs/ANDROID_BUILD.md` |
-| Limitaciones conocidas | `docs/LIMITATIONS.md` |
+| Módulo afectado            | Documento a actualizar  |
+| -------------------------- | ----------------------- |
+| Instalación o dependencias | `docs/INSTALLATION.md`  |
+| Arquitectura o servicios   | `docs/ARCHITECTURE.md`  |
+| Cualquier módulo funcional | `docs/MODULES.md`       |
+| Pruebas                    | `docs/TESTING.md`       |
+| Build Android              | `docs/ANDROID_BUILD.md` |
+| Limitaciones conocidas     | `docs/LIMITATIONS.md`   |
 
 ---
 

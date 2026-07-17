@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     namespace = "com.ocupabus.ap4"
     compileSdk = rootProject.ext.compileSdkVersion
-    base.archivesName = "OcupaBus-AP4"
+    // base.archivesName = "OcupaBus-AP4"
     defaultConfig {
         applicationId "com.ocupabus.ap4"
         minSdkVersion rootProject.ext.minSdkVersion

@@ -17,8 +17,8 @@
       </p>
 
       <div class="hero-actions">
-        <ion-chip color="success"><ion-icon name="sparkles-outline"></ion-icon><ion-label>Dashboard</ion-label></ion-chip>
-        <ion-chip color="tertiary"><ion-icon name="refresh-outline"></ion-icon><ion-label>{{ status$ | async }}</ion-label></ion-chip>
+        <ion-chip class="hero-chip"><ion-icon name="sparkles-outline"></ion-icon><ion-label>Dashboard</ion-label></ion-chip>
+        <ion-chip class="hero-chip"><ion-icon name="refresh-outline"></ion-icon><ion-label>{{ status$ | async }}</ion-label></ion-chip>
       </div>
     </section>
 
@@ -56,7 +56,7 @@
             <ion-label>
               <h3>{{ item.title }}</h3>
               <p>{{ item.summary }}</p>
-              <small>{{ item.source }} · {{ item.publishedAt }}</small>
+              <small>{{ item.source }} · {{ item.publishedAt }} · {{ item.author }}</small>
             </ion-label>
           </ion-item>
         </ion-list>
@@ -69,10 +69,17 @@
       </ion-card-header>
       <ion-card-content>
         <ion-textarea [(ngModel)]="feedback" label="Mensaje" labelPlacement="stacked" placeholder="Escribe un comentario breve para el servicio web"></ion-textarea>
-        <ion-button expand="block" class="send-button" (click)="sendFeedback()">
-          <ion-icon slot="start" name="send-outline"></ion-icon>
+        <ion-button expand="block" class="send-button" [disabled]="(feedbackStatus$ | async) === 'enviando'" (click)="sendFeedback()">
+          <ion-spinner *ngIf="(feedbackStatus$ | async) === 'enviando'" slot="start" name="crescent"></ion-spinner>
+          <ion-icon *ngIf="(feedbackStatus$ | async) !== 'enviando'" slot="start" name="send-outline"></ion-icon>
           Enviar mensaje
         </ion-button>
+        <ion-text class="feedback-message success-message" *ngIf="(feedbackStatus$ | async) === 'enviado'">
+          Mensaje enviado correctamente
+        </ion-text>
+        <ion-text class="feedback-message error-message" *ngIf="(feedbackStatus$ | async) === 'error'">
+          No se pudo enviar, intenta de nuevo
+        </ion-text>
       </ion-card-content>
     </ion-card>
   </div>

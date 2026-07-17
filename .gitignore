@@ -68,3 +68,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Capturas de evidencia (no se versionan; ver docs/ACADEMIC_EVIDENCE.md)
+/documentacion/*.png
